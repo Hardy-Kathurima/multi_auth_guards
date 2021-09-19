@@ -31,6 +31,13 @@ Route::post('/login/lecturer', [App\Http\Controllers\Auth\LoginController::class
 Route::post('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'createAdmin']);
 Route::post('/register/lecturer', [App\Http\Controllers\Auth\RegisterController::class, 'createLecturer']);
 
-Route::view('/home', 'home')->middleware('auth');
-Route::view('/admin', 'admin');
-Route::view('/lecturer', 'lecturer');
+Route::group(['middleware' => 'auth:lecturer'], function () {
+    Route::view('/lecturer', 'lecturer');
+});
+
+Route::group(['middleware' => 'auth:admin'], function () {
+
+    Route::view('/admin', 'admin');
+});
+
+Route::get('logout', [LoginController::class, 'logout']);

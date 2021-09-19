@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Lecturer Dashboard</div>
 
                 <div class="card-body">
-                    Hi there, awesome writer
+                    You are logged in as a Lecturer.
                 </div>
             </div>
         </div>
